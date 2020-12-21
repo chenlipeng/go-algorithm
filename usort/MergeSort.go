@@ -14,18 +14,17 @@ package usort
  * @desc 归并排序
  */
 func MergeSort(arr []int) {
-	l := len(arr)
-	if l <= 1 {
+	if len(arr) <= 1 {
 		return
 	}
 
-	mid := int(l / 2)
+	mid := int(len(arr) / 2)
 	MergeSort(arr[0:mid])
 	MergeSort(arr[mid:])
 
 	temp := []int{}
 	i, j := 0, mid
-	for i < mid && j < l {
+	for i < mid && j < len(arr) {
 		if arr[i] < arr[j] {
 			temp = append(temp, arr[i])
 			i++
@@ -35,15 +34,10 @@ func MergeSort(arr []int) {
 		}
 	}
 
-	for ; i < mid; i++ {
-		temp = append(temp, arr[i])
-	}
+	temp = append(temp, arr[i:mid]...)
+	temp = append(temp, arr[j:]...)
 
-	for ; j < l; j++ {
-		temp = append(temp, arr[j])
-	}
-
-	for i := 0; i < l; i++ {
+	for i := 0; i < len(arr); i++ {
 		arr[i] = temp[i]
 	}
 }

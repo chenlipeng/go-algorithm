@@ -14,8 +14,12 @@ var arr = []int{39, 99, 93, 69, 11, 26, 89, 62, 46, 72, 2, 14, 77, 86, 35, 64, 5
 func main() {
 
 	fmt.Println(arr)
+	usort.HeapSort(arr)
+	fmt.Println(arr)
+	return
 	usort.MergeSort(arr)
 	fmt.Println(arr)
+	return
 	usort.ShellSort(arr)
 	fmt.Println(arr)
 	usort.QuickSort(arr)
