@@ -12,23 +12,38 @@ var arr = []int{39, 99, 93, 69, 11, 26, 89, 62, 46, 72, 2, 14, 77, 86, 35, 64, 5
 //var arr = []int{8, 1, 14, 2, 88, 34, 66, 90, 22, 11, 7, 17, 999, 12, 666, 123}
 
 func main() {
-
 	fmt.Println(arr)
-	usort.HeapSort(arr)
-	fmt.Println(arr)
-	return
-	usort.MergeSort(arr)
+	//usort.QuickSort_1(arr)
+	usort.HeapSort_1(arr)
 	fmt.Println(arr)
 	return
-	usort.ShellSort(arr)
+	usort.MergeSort_1(arr)
 	fmt.Println(arr)
-	usort.QuickSort(arr)
+	usort.ShellSort_1(arr)
 	fmt.Println(arr)
-	usort.BubbleSort(arr)
+	usort.InsertionSort_1(arr)
 	fmt.Println(arr)
-	usort.SelectionSort(arr)
+	usort.BubbleSort_1(arr)
 	fmt.Println(arr)
-	usort.InsertionSort(arr)
+	usort.SelectionSort_1(arr)
 	fmt.Println(arr)
 
+	/*
+		usort.HeapSort(arr)
+		fmt.Println(arr)
+		return
+		usort.MergeSort(arr)
+		fmt.Println(arr)
+		return
+		usort.ShellSort(arr)
+		fmt.Println(arr)
+		usort.QuickSort(arr)
+		fmt.Println(arr)
+		usort.BubbleSort(arr)
+		fmt.Println(arr)
+		usort.SelectionSort(arr)
+		fmt.Println(arr)
+		usort.InsertionSort(arr)
+		fmt.Println(arr)
+	*/
 }

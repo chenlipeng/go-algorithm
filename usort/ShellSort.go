@@ -19,8 +19,7 @@ package usort
  * @desc Shell希尔排序
  */
 func ShellSort(arr []int) {
-	l := len(arr)
-	for step := int(l / 2); step >= 1; step = int(step / 2) {
+	for step := int(len(arr) / 2); step >= 1; step = int(step / 2) {
 		insertionSort(arr, step)
 	}
 }
@@ -33,8 +32,7 @@ func insertionSort(arr []int, step int) {
 		return
 	}
 
-	l := len(arr)
-	for i := step; i < l; i++ { //Tips. 这里要i++
+	for i := step; i < len(arr); i++ { //Tips. 这里要i++
 		pos := i - step
 		currentValue := arr[i]
 		for ; pos >= 0 && arr[pos] > currentValue; pos -= step {
