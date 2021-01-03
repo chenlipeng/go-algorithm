@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"go-algorithm/pattern/strategy"
+	"go-algorithm/pattern/template"
 	"go-algorithm/usort"
 )
 
@@ -12,6 +14,31 @@ var arr = []int{39, 99, 93, 69, 11, 26, 89, 62, 46, 72, 2, 14, 77, 86, 35, 64, 5
 //var arr = []int{8, 1, 14, 2, 88, 34, 66, 90, 22, 11, 7, 17, 999, 12, 666, 123}
 
 func main() {
+	fishsoup := template.NewFishSoup()
+	fishsoup.Cooking()
+
+	fmt.Println()
+	barbecue := template.NewBarbecue()
+	barbecue.Cooking()
+	return
+
+	rect := strategy.Rect{3.2, 89.1}
+	circle := strategy.Circle{8.1}
+
+	shapeList := []strategy.Shape{rect, circle}
+	fmt.Println(shapeList)
+
+	for _, shape := range shapeList {
+		fmt.Println(shape.Area())
+		fmt.Println(shape.Perimeter())
+	}
+	fmt.Println()
+
+	context := strategy.Context{rect}
+	fmt.Println(context.GetArea())
+	fmt.Println(context.GetPerimeter())
+	return
+
 	fmt.Println(arr)
 	//usort.QuickSort_1(arr)
 	usort.HeapSort_1(arr)
