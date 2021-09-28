@@ -1,7 +1,5 @@
 package usort
 
-import "fmt"
-
 /*
  * 堆排序（Heap Sort）
  * 		堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。
@@ -13,15 +11,11 @@ import "fmt"
  */
 
 func HeapSort(arr []int) {
-	fmt.Println(arr)
 	buildHeap(arr)
-	fmt.Println(arr)
 	for i := 0; i < len(arr)-1; i++ {
 		arr[0], arr[len(arr)-1-i] = arr[len(arr)-1-i], arr[0]
 		buildHeap(arr[:len(arr)-1-i])
-		fmt.Println(arr)
 	}
-	fmt.Println(arr)
 }
 
 func buildHeap(arr []int) {
@@ -36,11 +30,11 @@ func buildHeap(arr []int) {
 }
 
 func swap(arr []int, root int) {
-	left := root*2 + 1
+	left := root<<1 + 1
 	if left > len(arr)-1 {
 		return
 	}
-	right := root*2 + 2
+	right := left + 1
 
 	var pos int
 	if right > len(arr)-1 {

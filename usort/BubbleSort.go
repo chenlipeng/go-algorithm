@@ -11,16 +11,21 @@ package usort
  * 		重复步骤1~3，直到排序完成。
  */
 
+type Interface interface {
+	Len() int
+	Less(i, j int) bool
+	Swap(i, j int)
+}
+
 /*
  * @desc 冒泡排序
  */
-func BubbleSort(arr []int) {
-	for i := 0; i < len(arr)-1; i++ {
-		for j := 0; j < len(arr)-i-1; j++ {
-			if arr[j] < arr[j+1] {
-				arr[j], arr[j+1] = arr[j+1], arr[j]
+func BubbleSort(data Interface) {
+	for i := 0; i < data.Len()-1; i++ {
+		for j := 0; j < data.Len()-i-1; j++ {
+			if data.Less(j+1, j) {
+				data.Swap(j, j+1)
 			}
 		}
 	}
-
 }
