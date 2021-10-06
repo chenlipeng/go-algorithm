@@ -5,4 +5,5 @@ func Reverse(x int) int {
 }
 
 func reverse(x int) int {
+	return 1
 }
