@@ -1,7 +1,5 @@
 package leetcode
 
-import "fmt"
-
 func LargestRectangleArea(heights []int) int {
 	return largestRectangleArea_1(heights)
 	return largestRectangleArea(heights)
@@ -13,7 +11,6 @@ func LargestRectangleArea(heights []int) int {
  */
 func largestRectangleArea(heights []int) int {
 	result := 0
-	//stack, left, right := []int{}, []int{}, []int{}
 	stack, left, right := []int{}, []int{}, []int{}
 
 	for i := 0; i < len(heights); i++ {
@@ -26,16 +23,11 @@ func largestRectangleArea(heights []int) int {
 
 		if len(stack) == 0 {
 			left = append(left, -1)
-			//stack = append(stack, i)
 		} else {
 			left = append(left, stack[len(stack)-1])
-			//stack = append(stack, i)
 		}
 		stack = append(stack, i)
 	}
-
-	//left : -1, -1
-	//right:  1,  2
 
 	stack = []int{}
 	for i := len(heights) - 1; i >= 0; i-- {
@@ -48,15 +40,11 @@ func largestRectangleArea(heights []int) int {
 
 		if len(stack) == 0 {
 			right = append(right, len(heights))
-			//stack = append(stack, i)
 		} else {
 			right = append(right, stack[len(stack)-1])
-			//stack = append(stack, i)
 		}
 		stack = append(stack, i)
 	}
-
-	fmt.Println(left, right)
 
 	max := func(l, r int) int {
 		if l > r {
