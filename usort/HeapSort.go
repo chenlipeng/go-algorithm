@@ -14,14 +14,15 @@ func HeapSort(arr []int) {
 	buildHeap(arr)
 	for i := 0; i < len(arr)-1; i++ {
 		arr[0], arr[len(arr)-1-i] = arr[len(arr)-1-i], arr[0]
-		buildHeap(arr[:len(arr)-1-i])
+		//buildHeap(arr[:len(arr)-1-i])
+		swap(arr[:len(arr)-1-i], 0)
 	}
 }
 
 func buildHeap(arr []int) {
-	if len(arr) <= 1 {
-		return
-	}
+	//if len(arr) <= 1 {
+	//	return
+	//}
 
 	//Tips. 从叶节点到根节点
 	for i := int(len(arr)/2) - 1; i >= 0; i-- {

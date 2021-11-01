@@ -1,9 +1,7 @@
 package leetcode
 
-import "fmt"
-
 func WordBreak(s string, wordDict []string) bool {
-	return wordBreak(s, wordDict, 0)
+	return wordBreak(s, wordDict)
 }
 
 func wordBreak(s string, wordDict []string) bool {
@@ -26,7 +24,7 @@ func runWordBreak(s string, wordDict []string, idx int, statusMap map[int]bool) 
 			continue
 		}
 
-		result := runWordBreak(s[l:], wordDict, idx+l)
+		result := runWordBreak(s[l:], wordDict, idx+l, statusMap)
 		if result == true {
 			return true
 		}
